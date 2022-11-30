@@ -1,12 +1,13 @@
+<<syntax
 gcloud compute networks peerings create peering-name \
             --network=local-network --peer-network=peer-network \
             --export-custom-routes --import-custom-routes \
             --export-subnet-routes-with-public-ip \
             --import-subnet-routes-with-public-ip
+syntax
 
 #communicating from my-network-1 to my-network-2
 gcloud compute networks peerings create mypeering-mynetwrk-1to-mynetwrk-2 --network=my-network-1 --peer-network=my-network-2 
-
 
 #communicating from my-network-2 to my-network-1
 gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --network=my-network-2 --peer-network=my-network-1 
