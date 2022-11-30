@@ -32,3 +32,9 @@ gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --netw
 
 #list the network peerings
 gcloud compute networks peerings list
+
+#From this Project myproject2-369012 run
+gcloud compute networks peerings create mipering-mynetwrk-1to-anotherproject-netwrk --network=my-network-1 --peer-network=my-vpc-network --peer-project=applied-ridge-364816
+
+#Now from this Project applied-ridge-364816 run
+gcloud compute networks peerings create mipering-myridge-1to-anotherproject2-netwrk --network=my-vpc-network --peer-network=my-network-1 --peer-project=myproject2-369012
