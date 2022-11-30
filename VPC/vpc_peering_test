@@ -20,3 +20,7 @@ err
 
 #delete the conflited network and try 
 
+gcloud compute networks subnets delete conflict-with-my-network-2-subnet subnet-2a subnet-2b --region europe-west1 --quiet
+
+#then try again
+gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --network=my-network-2 --peer-network=my-network-1 
