@@ -28,4 +28,3 @@ gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --netw
 
 #then ping myinstance1 to myinstance2 and vise versa
 #In the Section VPC network peering --> you can find status ACTIVE
-
