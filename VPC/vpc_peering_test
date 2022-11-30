@@ -11,7 +11,9 @@ gcloud compute networks peerings create mypeering-mynetwrk-1to-mynetwrk-2 --netw
 #communicating from my-network-2 to my-network-1
 gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --network=my-network-2 --peer-network=my-network-1 
 
-~~gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --network=my-network-2 --peer-network=my-network-1 
+<<cmd 
+gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --network=my-network-2 --peer-network=my-network-1 
 ERROR: (gcloud.compute.networks.peerings.create) Could not fetch resource:
  - An IP range in the peer network (10.0.1.0/24) overlaps with an IP range in the local network (10.0.1.0/24) 
- allocated by resource (projects/myproject2-369012/regions/europe-west1/subnetworks/conflict-with-my-network-2-subnet)~~
+ allocated by resource (projects/myproject2-369012/regions/europe-west1/subnetworks/conflict-with-my-network-2-subnet)
+ cmd
