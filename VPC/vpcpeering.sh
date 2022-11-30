@@ -28,6 +28,10 @@ gcloud compute networks subnets create conflict-with-my-network-3-subnet --netwo
 
 echo "Create firewall rules to allow port 22 , icmp access for all network resources"
 
+#you can mention firewall name as well
+#gcloud compute firewall-rules create <FIREWALL_NAME> --network my-network-1 --allow tcp,udp,icmp --source-ranges <IP_RANGE>
+#gcloud compute firewall-rules create <FIREWALL_NAME> --network my-network-1 --allow tcp:22,tcp:3389,icmp
+
 gcloud compute firewall-rules create ssh-allow-network-1 --direction=INGRESS --priority=1000 --network=my-network-1 --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0
 gcloud compute firewall-rules create icmp-allow-network-1 --direction=INGRESS --priority=1000 --network=my-network-1 --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0
 
