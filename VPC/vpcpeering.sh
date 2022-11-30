@@ -45,11 +45,12 @@ gcloud compute firewall-rules create icmp-allow-network-3 --direction=INGRESS --
 
 echo "Create a 3 instance's in each created subnet"
 
-gcloud compute instances create myinstance-1 --zone=europe-west1-a --machine-type=f1-micro --subnet=subnet-1a
+gcloud compute instances create myinstance-1 --zone=europe-west1-b --machine-type=f1-micro --subnet=subnet-1a
 
-gcloud compute instances create myinstance-2 --zone=europe-west1-a --machine-type=f1-micro --subnet=subnet-2a
+gcloud compute instances create myinstance-2 --zone=europe-west1-b --machine-type=f1-micro --subnet=subnet-2a
 
-gcloud compute instances create myinstance-3 --zone=europe-west1-a --machine-type=f1-micro --subnet=subnet-3a
+#Zone Changed, Just for Knowledge
+gcloud compute instances create myinstance-3 --zone=europe-west1-c --machine-type=f1-micro --subnet=subnet-3a
 
 
 echo "Setup complete, proceed to establish a VPC peering"
