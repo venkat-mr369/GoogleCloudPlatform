@@ -52,5 +52,5 @@ gcloud compute instances create myinstance-2 --zone=europe-west1-b --machine-typ
 gcloud compute instances create myinstance-3 --zone=europe-west1-c --machine-type=f1-micro --subnet=subnet-3a
 
 
-echo "Setup complete, proceed to establish a VPC peering"
+echo "Setup complete, proceed to establish a VPC peering & Do the manual test accordingly"
 
