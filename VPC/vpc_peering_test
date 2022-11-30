@@ -26,3 +26,5 @@ gcloud compute networks subnets delete conflict-with-my-network-2-subnet --regio
 gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --network=my-network-2 --peer-network=my-network-1 
 
 #then ping myinstance1 to myinstance2 and vise versa
+
+
