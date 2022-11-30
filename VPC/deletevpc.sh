@@ -19,4 +19,4 @@ gcloud compute instances delete myinstance-3 --zone=europe-west1-c
 gcloud compute networks delete my-network-1
 
 #To delete two networks with the names 'my-network-1' and 'my-network-2', run:
-gcloud compute networks delete network-name2 network-name3
+gcloud compute networks delete my-network-2 my-network-3
