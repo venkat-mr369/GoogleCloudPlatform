@@ -16,9 +16,11 @@ gcloud compute instances delete myinstance-1 myinstance-2 --zone=europe-west1-b
 gcloud compute instances delete myinstance-3 --zone=europe-west1-c
 
 #gcloud compute networks subnets  list --filter=my-network-1
-#gcloud compute networks subnets  list --filter='my-network-1' 'my-network-2'
-#gcloud compute networks subnets  list --filter="my-network-1" "my-network-2"
+#gcloud compute networks subnets  list --filter='my-network-2' 'my-network-3'
+#gcloud compute networks subnets  list --filter="my-network-2" "my-network-3"
 
+gcloud compute networks subnets delete conflict-with-my-network-2-subnet subnet-2a subnet-2b --region europe-west1
+gcloud compute networks subnets delete conflict-with-my-network-3-subnet subnet-3a subnet-3b --region europe-west1
 
 #To delete a network with the name 'my-network-1', run:
 gcloud compute networks delete my-network-1
