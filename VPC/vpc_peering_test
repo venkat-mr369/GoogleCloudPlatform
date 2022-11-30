@@ -5,6 +5,7 @@ gcloud compute networks peerings create peering-name \
             --export-subnet-routes-with-public-ip \
             --import-subnet-routes-with-public-ip
 syntax
+#from OneProject to AnotherProject --peer-project=PEER_PROJECT_NAME
 
 #communicating from my-network-1 to my-network-2
 gcloud compute networks peerings create mypeering-mynetwrk-1to-mynetwrk-2 --network=my-network-1 --peer-network=my-network-2 
@@ -28,3 +29,6 @@ gcloud compute networks peerings create mypeering-mynetwrk-2to-mynetwrk-1 --netw
 
 #then ping myinstance1 to myinstance2 and vise versa
 #In the Section VPC network peering --> you can find status ACTIVE
+
+#list the network peerings
+gcloud compute networks peerings list
