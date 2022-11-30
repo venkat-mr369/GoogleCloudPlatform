@@ -4,11 +4,16 @@
   #gcloud compute firewall-rules list
   #gcloud compute firewall-rules update
 
-gcloud compute firewall-rules list
 #According to the list, mentioned that names and delete
+#gcloud compute firewall-rules list
 
 gcloud compute firewall-rules delete ssh-allow-network-1 ssh-allow-network-2 ssh-allow-network-3
 gcloud compute firewall-rules delete icmp-allow-network-1 icmp-allow-network-2 icmp-allow-network-3
+
+#According to the list, mentioned that instances names with zones then you can delete
+#gcloud compute instances list
+gcloud compute instances delete myinstance-1 myinstance-2 --zone=europe-west1-b
+gcloud compute instances delete myinstance-3 --zone=europe-west1-c
 
 #To delete a network with the name 'my-network-1', run:
 gcloud compute networks delete my-network-1
