@@ -9,5 +9,5 @@ echo "Region and Zone: " . "region-here";
 echo "<h1>Hello Google - Welcome to Cloud Platform - VERSION 2</h1>";
 echo '<i style="color:blue;font-size:40px;font-family:calibri ;">
       Google Cloud Online Training VERSION 02</i> ';
-echo "<h2>Google Cloud Online Training VERSION 02</h2>";
+echo "<h2>GCP Online Training Contact: venkat.mr369@gmail.com</h2>";
 ?>
