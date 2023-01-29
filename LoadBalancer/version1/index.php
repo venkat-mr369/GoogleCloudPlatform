@@ -7,6 +7,6 @@ echo "Server Hostname: " . php_uname("n");
 echo "<h2>Server Location</h2>";
 echo "Region and Zone: " . "region-here";
 echo "<h1>Hello Google World - Welcome to GCP Platform - VERSION 1</h1>";
-<img src="https://i.dawn.com/primary/2016/07/5794289417167.jpg" 
+echo "<img src="https://i.dawn.com/primary/2016/07/5794289417167.jpg";
 echo "<h2>Google Cloud is Rocking</h2>";
 ?>
