@@ -8,5 +8,5 @@ echo "Server Hostname: " . php_uname("n");
 echo "<h2>Server Location</h2>";
 echo "Region and Zone: " . "region-here";
 echo '<body style="background-color:orange">';
-echo "<h2>Google Cloud is Rocking</h2>";
+echo "<h2>Google Cloud is Rocking in Software Industry</h2>";
 ?>
