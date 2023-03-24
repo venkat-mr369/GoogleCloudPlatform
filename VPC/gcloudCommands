@@ -12,6 +12,8 @@ $ mkdir /opt/batch10 # this is ephemeral, means it will be gone after the restar
 # Where is cloud shell provisioned ??
 # https://www.google.com/about/datacenters/
 
+#Set Lines
+gcloud config set accessibility/screen_reader false
 
 gcloud init
 gcloud info
