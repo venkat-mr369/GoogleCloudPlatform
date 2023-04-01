@@ -23,13 +23,13 @@ gcloud compute firewall-rules create msm-icmp-allow-network-1 --direction=INGRES
 gcloud compute firewall-rules create ams-ssh-allow-network-2 --direction=INGRESS --priority=1000 --network=ams-myvpc-network-2 --project=ams369 --action=ALLOW --rules=tcp:22 --source-ranges=0.0.0.0/0
 gcloud compute firewall-rules create ams-icmp-allow-network-2 --direction=INGRESS --priority=1000 --network=ams-myvpc-network-2 --project=ams369 --action=ALLOW --rules=icmp --source-ranges=0.0.0.0/0
 
-echo "Create a 3 instance's in each created subnet"
+echo "Creating 2 instance's in each project"
 
 gcloud compute instances create msm-myinst-1 --project=msm369 --zone=europe-west1-b --machine-type=f1-micro --subnet=msm-subnet-1a --no-address
 
 gcloud compute instances create ams-myinst-2 --project=ams369 --zone=europe-west1-b --machine-type=f1-micro --subnet=ams-subnet-2a
 
 
-echo "Setup complete, proceed to establish a VPC peering & Do the vpc_peering_test for two projects accordingly"
+echo "Setup complete, proceed to establish a VPC peering for 2 Projects & Do the vpc_peering_test for two projects accordingly"
 echo "Setup Complete for Project msm369"
 echo "Setup Complete for Project ams369"
