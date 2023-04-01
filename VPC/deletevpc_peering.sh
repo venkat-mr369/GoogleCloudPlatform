@@ -24,8 +24,8 @@ gcloud compute networks subnets delete subnet-1a subnet-1b --region europe-west1
 gcloud compute networks subnets delete conflict-with-my-network-2-subnet subnet-2a subnet-2b --region europe-west1 --quiet
 gcloud compute networks subnets delete conflict-with-my-network-3-subnet subnet-3a subnet-3b --region europe-west1 --quiet
 
-#To delete a network with the name 'my-network-1', run:
-gcloud compute networks delete my-network-1 --quiet
+#To delete a network with the name 'myvpc-network-1', run:
+gcloud compute networks delete myvpc-network-1 --quiet
 
-#To delete two networks with the names 'my-network-1' and 'my-network-2', run:
-gcloud compute networks delete my-network-2 my-network-3 --quiet
+#To delete two networks with the names 'myvpc-network-1' and 'myvpc-network-2', run:
+gcloud compute networks delete myvpc-network-2 myvpc-network-3 --quiet
