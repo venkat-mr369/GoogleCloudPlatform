@@ -16,9 +16,9 @@ gcloud compute firewall-rules delete icmp-allow-network-1 icmp-allow-network-2 i
 gcloud compute instances delete myinstance-1 myinstance-2 --zone=europe-west1-b --quiet
 gcloud compute instances delete myinstance-3 --zone=europe-west1-c --quiet
 
-#gcloud compute networks subnets  list --filter=my-network-1
-#gcloud compute networks subnets  list --filter='my-network-2' 'my-network-3'
-#gcloud compute networks subnets  list --filter="my-network-2" "my-network-3"
+#gcloud compute networks subnets  list --filter=myvpc-network-1
+#gcloud compute networks subnets  list --filter='myvpc-network-2' 'myvpc-network-3'
+#gcloud compute networks subnets  list --filter="myvpc-network-2" "my-network-3"
 
 gcloud compute networks subnets delete subnet-1a subnet-1b --region europe-west1 --quiet
 gcloud compute networks subnets delete conflict-with-my-network-2-subnet subnet-2a subnet-2b --region europe-west1 --quiet
