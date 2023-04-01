@@ -1,0 +1,28 @@
+#Deleting Instances
+gcloud compute instances delete msm-myinst-1 --project=msm369 --zone=europe-west1-b --quiet
+gcloud compute instances delete ams-myinst-2 --project=ams369 --zone=europe-west1-b --quiet
+
+#Deleting firewall in msm369
+gcloud compute firewall-rules delete msm-ssh-allow-network-1 --project=msm369 --quiet
+gcloud compute firewall-rules delete msm-icmp-allow-network-1 --project=msm369 --quiet
+
+#Deleting firewall in ams369
+gcloud compute firewall-rules delete ams-ssh-allow-network-2 --project=ams369 --quiet
+gcloud compute firewall-rules delete ams-icmp-allow-network-2 --project=ams369 --quiet
+
+
+#Deleting Subnets for the project msm369
+gcloud compute networks subnets delete msm-subnet-1a --project=msm369 --region=europe-west1 --quiet
+gcloud compute networks subnets delete msm-subnet-1b --project=msm369 --region=europe-west1 --quiet
+
+#Deleting Subnets for the project ams369
+gcloud compute networks subnets delete ams-subnet-2a --project=ams369 --region=europe-west1 --quiet
+gcloud compute networks subnets delete ams-subnet-2b --project=ams369 --region=europe-west1 --quiet
+
+
+gcloud compute networks delete msm-myvpc-network-1 --project=msm369 --quiet
+gcloud compute networks delete ams-myvpc-network-2 --project=ams369 --quiet
+
+echo "all Deleted for two Projects"
+echo "Delete Completed for Project msm369"
+echo "Delete Completed for Project ams369"
