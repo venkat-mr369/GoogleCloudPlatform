@@ -10,6 +10,7 @@ gsutil config -n
 and open boto file
 
 vi ~/.boto
+edit ~/.boto
 # enable and put the key
 encryption_key=
 # enable and put the key
