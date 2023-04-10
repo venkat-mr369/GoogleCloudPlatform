@@ -15,5 +15,5 @@ encryption_key=
 # enable and put the key
 decryption_key1=
 
-What is a Boto file?
+# What is a Boto file?
 A boto config file is a text file formatted like an . ini configuration file that specifies values for options that control the behavior of the boto library. In Unix/Linux systems, on startup, the boto library looks for configuration files in the following locations and in the following order: /etc/boto
