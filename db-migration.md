@@ -14,7 +14,9 @@ sudo mysql_secure_installation
 mysql
 
 # Create a database
-create database emp;
+create database demo;
+
+use demo
 
 # Create a table
 CREATE TABLE Persons (
@@ -27,12 +29,22 @@ CREATE TABLE Persons (
 
 # Insert into tables
 INSERT INTO Persons (PersonID, LastName, FirstName, Address, City)
-Values("1","venkat","M","Hyderabad","Telangana");
+Values("1","venkat","M","Tirupati","Andhra Pradesh");
+
+#create bulk table
+create table bulk(id int, name varchar(30);
+insert into bulk values (1,'record');
+insert into bulk values (2,'record');
+
+#insert some records and then insert bulk
+insert into bulk select * from bulk; 
+
+#same command insert multiple times 
 
 SELECT user,authentication_string,plugin,host FROM mysql.user;
 
-CREATE USER 'venkat'@'PUBLICIPOFVM' IDENTIFIED BY 'PASSWORD';
-grant all on *.* to 'venkat'@'PUBLICIPOFVM';
+CREATE USER 'venkat'@'Public-of-vm' IDENTIFIED BY 'PASSWORD';
+grant all on *.* to 'venkat'@'Public-of-vm';
 flush privileges;
 
 GRANT ALL PRIVILEGES ON *.* TO 'venkat'@'%' IDENTIFIED BY 'PASSWORD' WITH GRANT OPTION;
@@ -40,7 +52,7 @@ flush privileges;
 
 
 # Try to connect to mysql instance from anywhere 
-mysql -u venkat -h PUBLICIPOFVM -p
+mysql -u venkat -h Public-of-vm -p
 
 # If we get below error : 
 ERROR 2003 (HY000): Can't connect to MySQL server on '34.125.93.52:3306' (111)
