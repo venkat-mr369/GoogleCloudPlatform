@@ -43,7 +43,7 @@ insert into bulk select * from bulk;
 
 SELECT user,authentication_string,plugin,host FROM mysql.user;
 
-CREATE USER 'venkat'@'Public-of-vm' IDENTIFIED BY 'PASSWORD';
+CREATE USER 'venkat'@'Public-of-vm' IDENTIFIED BY 'pwd123';
 grant all on *.* to 'venkat'@'Public-of-vm';
 flush privileges;
 
