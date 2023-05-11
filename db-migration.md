@@ -47,7 +47,7 @@ CREATE USER 'venkat'@'Public-of-vm' IDENTIFIED BY 'pwd123';
 grant all on *.* to 'venkat'@'Public-of-vm';
 flush privileges;
 
-GRANT ALL PRIVILEGES ON *.* TO 'venkat'@'%' IDENTIFIED BY 'PASSWORD' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON *.* TO 'venkat'@'%' IDENTIFIED BY 'pwd123' WITH GRANT OPTION;
 flush privileges;
 
 
