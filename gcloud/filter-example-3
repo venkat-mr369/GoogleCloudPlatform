@@ -19,3 +19,8 @@ gcloud compute zones list --format="table[box,title=Zones](id:label=zone_id, sel
 To align column content to the center, sort primarily by name (and secondarily by zone) and give the zone column an appropriate label, run:
 
 gcloud compute zones list --format="table[box,title=Zones](name:sort=1:align=center, region.basename():label=region:sort=2, status)"
+
+To display a boxed list of all your projects, ordered in reverse alphabetical order along with creation times in a d-m-y format:
+
+gcloud projects list --format="table[box](name:sort=1:reverse, createTime.date('%d-%m-%Y'))"
+
