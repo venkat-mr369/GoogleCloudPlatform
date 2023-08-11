@@ -24,3 +24,5 @@ To display a boxed list of all your projects, ordered in reverse alphabetical or
 
 gcloud projects list --format="table[box](name:sort=1:reverse, createTime.date('%d-%m-%Y'))"
 
+Don’t forget to clean up after yourself: If you created test projects, be sure to delete them to avoid unnecessary charges. 
+Use gcloud projects delete <PROJECT-ID>.
