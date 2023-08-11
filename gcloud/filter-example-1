@@ -1,0 +1,19 @@
+~Who am I logged in as?~
+gcloud auth list
+
+~What is my project name?~
+gcloud config get-value project
+
+What is my project number?
+gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)"
+
+What is my project ID?
+gcloud config get-value project
+
+Billing
+Get all my billing accounts into CSV.
+gcloud alpha billing accounts list --format="csv(displayName,masterBillingAccount,name,open)" > billingAccounts.csv
+
+IAM
+Add secret.mangaer/secretAccessor to my Cloud Build Service Account.
+gcloud projects add-iam-policy-binding $(gcloud config get-value project) --member=serviceAccount:"$(gcloud projects list --filter="$(gcloud config get-value project)" --format="value(PROJECT_NUMBER)")@cloudbuild.gserviceaccount.com" --role=roles/secretmanager.secretAccessor
