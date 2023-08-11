@@ -7,3 +7,15 @@ gcloud projects list --format=json --filter="NOT parent.type:organization"
 To list projects created after a specific date (while making the comparison with a nifty projection), run:
 
 gcloud projects list --format=json --filter="createTime.date('%d-%m-%Y')>1-1-2017"
+
+Tip: Fields and field attributes can be defined using this structure: --format=type[attribute,...] (field.transform():attribute,...).
+
+In practice, this would look like:
+
+gcloud compute instances list --format="json(zone.basename():sort=1:label=zone,name)"
+To return the last URL path component, use basename():
+
+gcloud compute zones list --format="table[box,title=Zones](id:label=zone_id, selfLink.basename())"
+To align column content to the center, sort primarily by name (and secondarily by zone) and give the zone column an appropriate label, run:
+
+gcloud compute zones list --format="table[box,title=Zones](name:sort=1:align=center, region.basename():label=region:sort=2, status)"
