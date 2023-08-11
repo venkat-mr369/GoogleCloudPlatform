@@ -1,0 +1,9 @@
+To filter out the available compute zones to display a list of those with asia-prefixed zones, run:
+
+gcloud compute zones list --filter="region:asia*"
+To list projects with a parent type that is not an organization, run:
+
+gcloud projects list --format=json --filter="NOT parent.type:organization"
+To list projects created after a specific date (while making the comparison with a nifty projection), run:
+
+gcloud projects list --format=json --filter="createTime.date('%d-%m-%Y')>1-1-2017"
