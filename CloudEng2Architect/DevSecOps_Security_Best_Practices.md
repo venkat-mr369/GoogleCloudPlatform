@@ -203,8 +203,4 @@ gcloud services enable logging.googleapis.com monitoring.googleapis.com
 
 ---
 
-## 📦 Bonus: Script Automation
 
-Would you like a **shell script** or **Terraform template** to automate these security policies for your GCP projects?
-
-Let me know — I can generate a full DevSecOps bootstrap script or CI/CD-secured pipeline config.
