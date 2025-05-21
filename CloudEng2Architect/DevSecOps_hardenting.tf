@@ -1,3 +1,10 @@
+# IAM hardening with least privilege service account
+# VPC with deny-all ingress and SSH access via IAP
+# Shielded VM deployment
+# Secret Manager secret creation
+# Essential APIs enabled
+
+
 # Terraform GCP DevSecOps Hardening Template
 
 provider "google" {
