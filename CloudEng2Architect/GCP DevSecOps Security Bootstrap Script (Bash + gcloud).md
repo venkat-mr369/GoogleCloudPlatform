@@ -103,12 +103,6 @@ echo "✅ GCP DevSecOps Hardening Completed."
 
 ---
 
-## 📦 Optional: What to Add Next?
-
-* ✅ Terraform version of this script
-* ✅ CI/CD secured pipeline in Cloud Build or GitHub Actions
-* ✅ Monitoring dashboard in Cloud Monitoring
-* ✅ Audit policy for organization-level
 
 ---
 
