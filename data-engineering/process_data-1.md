@@ -109,12 +109,27 @@ if __name__ == '__main__':
 
 Adjust the table schema to match your Excel columns:
 
+| Column      | Sample Value | PostgreSQL Type     |
+|-------------|---------------|----------------------|
+| `OrderDate` | 2024-01-06    | `DATE`               |
+| `Region`    | East          | `VARCHAR(50)`        |
+| `Rep`       | Jones         | `VARCHAR(100)`       |
+| `Item`      | Pencil        | `VARCHAR(50)`        |
+| `Units`     | 95            | `INTEGER`            |
+| `Unit Cost` | 1.99          | `NUMERIC(10, 2)`     |
+| `Total`     | 189.05        | `NUMERIC(10, 2)`     |
+
 ```sql
-CREATE TABLE your_table_name (
-    column1 TEXT,
-    column2 TEXT
-    -- add columns as per your Excel
+CREATE TABLE sales_data (
+    order_date DATE,
+    region VARCHAR(50),
+    rep VARCHAR(100),
+    item VARCHAR(50),
+    units INTEGER,
+    unit_cost NUMERIC(10, 2),
+    total NUMERIC(10, 2)
 );
+
 ```
 
 ---
