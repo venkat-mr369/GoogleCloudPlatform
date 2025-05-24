@@ -20,7 +20,7 @@ gcloud services enable container.googleapis.com
 
 This command creates a regional GKE cluster with 3 nodes distributed across zones in the region `us-central1` (you can change the region).
 
-### In Autopilot, GKE automatically provisions nodes based on workload needs.
+#### In Autopilot, GKE automatically provisions nodes based on workload needs.
 ```bash
 gcloud container clusters create-auto "my-gke-cluster" \
   --region "us-central1" \
@@ -29,7 +29,7 @@ gcloud container clusters create-auto "my-gke-cluster" \
 ```
 
 
-### If you want full control over nodes (like specifying 3 nodes), use create instead of create-auto:
+#### If you want full control over nodes (like specifying 3 nodes), use create instead of create-auto:
 ```bash
 gcloud container clusters create-auto my-gke-cluster \
   --region us-central1 \
