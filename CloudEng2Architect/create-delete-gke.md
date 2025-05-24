@@ -21,6 +21,10 @@ gcloud components install kubectl
 ```bash
 gcloud components install gke-gcloud-auth-plugin
 ```
+#### you can install your shell to work on k8s services
+```bash
+sudo apt-get install google-cloud-cli-gke-gcloud-auth-plugin
+```
 
 #### 3. **Create the GKE cluster**
 
