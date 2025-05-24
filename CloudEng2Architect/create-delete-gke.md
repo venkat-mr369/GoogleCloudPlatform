@@ -15,6 +15,12 @@ gcloud config set project randd-1
 ```bash
 gcloud services enable container.googleapis.com
 ```
+```bash
+gcloud components install kubectl
+```
+```bash
+gcloud components install gke-gcloud-auth-plugin
+```
 
 #### 3. **Create the GKE cluster**
 
