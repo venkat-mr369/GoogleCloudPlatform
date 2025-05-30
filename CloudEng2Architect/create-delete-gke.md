@@ -39,19 +39,35 @@ gcloud container clusters create-auto "my-gke-cluster-wkg" \
 ```
 
 
-#### If you want full control over nodes (like specifying 3 nodes), use create instead of create-auto:
+#### If you want full control over nodes (like specifying 3 nodes), with latest to avoid below issue
+
+Note: The Kubelet readonly port (10255) is now deprecated. Please update your workloads to use the recommended alternatives. See https://cloud.google.com/kubernetes-engine/docs/how-to/disable-kubelet-readonly-port for ways to check usage and for migration instructions.
+Note: Your Pod address range (--cluster-ipv4-cidr) can accommodate at most 1008 node(s).
+
 ```bash
-gcloud container clusters create-auto my-gke-cluster \
+gcloud container clusters create my-gke-cluster-latest \
   --region us-central1 \
-  --project randd-1 \
+  --num-nodes 3 \
+  --enable-ip-alias \
+  --cluster-ipv4-cidr=/14 \
+  --services-ipv4-cidr=/20 \
+  --no-enable-basic-auth \
+  --metadata disable-legacy-endpoints=true \
+  --workload-metadata-from-node=GKE_METADATA \
   --release-channel regular \
-  --node-count 3
+  --enable-autorepair \
+  --enable-autoupgrade \
+  --logging=SYSTEM,WORKLOAD \
+  --monitoring=SYSTEM \
+  --tags=gke-cluster \
+  --enable-stackdriver-kubernetes
+
 ```
 
 Alternatively, for a **zonal cluster** (all 3 nodes in the same zone):
 
 ```bash
-gcloud container clusters create my-gke-cluster \
+gcloud container clusters create gke-cluster-manualnodes \
   --zone us-central1-a \
   --num-nodes 3 \
   --project randd-1
