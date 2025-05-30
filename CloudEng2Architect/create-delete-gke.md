@@ -49,19 +49,20 @@ gcloud container clusters create my-gke-cluster-latest \
   --region us-central1 \
   --num-nodes 3 \
   --enable-ip-alias \
+  --disk-type=pd-ssd \
+  --disk-size=20 \
   --cluster-ipv4-cidr=/14 \
   --services-ipv4-cidr=/20 \
   --no-enable-basic-auth \
   --metadata disable-legacy-endpoints=true \
+  --workload-pool=randd-1.svc.id.goog \
   --workload-metadata-from-node=GKE_METADATA \
   --release-channel regular \
   --enable-autorepair \
   --enable-autoupgrade \
   --logging=SYSTEM,WORKLOAD \
   --monitoring=SYSTEM \
-  --tags=gke-cluster \
-  --enable-stackdriver-kubernetes
-
+  --tags=gke-cluster
 ```
 
 | **Issue**                 | **Fix/Update**                                                                                                                                                                                                                                          |
