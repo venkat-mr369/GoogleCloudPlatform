@@ -67,9 +67,11 @@ gcloud container clusters create my-gke-cluster \
 
 ---
 ```bash
-kubectl get nodes 
+kubectl get nodes -o wide
 ```
-
+```bash
+kubectl get pods -o wide
+```
 
 ### ✅ **Access your cluster (after creation)**
 
