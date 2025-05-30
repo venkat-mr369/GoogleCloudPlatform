@@ -21,6 +21,7 @@ gcloud container clusters create my-gke-cluster-latest \
   --monitoring=SYSTEM \
   --tags=gke-cluster
 ```
+```bash
 Explanation of Parameters:
 •	--region us-central1:
   Specifies the region where the GKE cluster will be deployed.
@@ -56,3 +57,4 @@ Explanation of Parameters:
   Enables monitoring of system metrics.
 •	--tags=gke-cluster:
   Applies network tags to all VM instances in the cluster for firewall rules or other purposes.
+```
