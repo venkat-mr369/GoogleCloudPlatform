@@ -97,6 +97,12 @@ kubectl get nodes -o wide
 ```bash
 kubectl get pods -o wide
 ```
+```bash
+gcloud container clusters list
+NAME                     LOCATION       MASTER_VERSION      MASTER_IP       MACHINE_TYPE  NODE_VERSION        NUM_NODES  STATUS
+my-gke-cluster-autopilot us-central1    1.32.3-gke.1927009  34.132.214.230  e2-small      1.32.3-gke.1927009             RUNNING
+gke-cluster-manualnodes  us-central1-a  1.32.3-gke.1927009  34.42.250.170   e2-medium     1.32.3-gke.1927009  3          RUNNING
+```
 
 ### ✅ **Access your cluster (after creation)**
 
