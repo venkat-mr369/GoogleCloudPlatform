@@ -32,7 +32,7 @@ This command creates a regional GKE cluster with 3 nodes distributed across zone
 
 #### In Autopilot, GKE automatically provisions nodes based on workload needs.
 ```bash
-gcloud container clusters create-auto "my-gke-cluster" \
+gcloud container clusters create-auto "my-gke-cluster-wkg" \
   --region "us-central1" \
   --project "randd-1" \
   --release-channel "regular"
