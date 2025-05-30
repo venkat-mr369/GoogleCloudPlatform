@@ -64,6 +64,15 @@ gcloud container clusters create my-gke-cluster-latest \
 
 ```
 
+| **Issue**                 | **Fix/Update**                                                                                                                                                                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Deprecated port 10255** | Ensure that none of your pods or services are configured to use the read-only Kubelet port. No need to configure this during cluster creation. [Check usage here](https://cloud.google.com/kubernetes-engine/docs/how-to/disable-kubelet-readonly-port) |
+| **Pod IP range limit**    | By setting `--cluster-ipv4-cidr=/14`, you're allowing a max of \~16,384 pod IPs, which comfortably supports 1000+ nodes. Adjust this based on your expected scale.                                                                                      |
+| **Security**              | `--no-enable-basic-auth` and `--metadata disable-legacy-endpoints=true` to enhance security.                                                                                                                                                            |
+| **Workload metadata**     | Use `GKE_METADATA` for secure access to metadata.                                                                                                                                                                                                       |
+| **Monitoring & Logging**  | Includes both system and workload metrics.                                                                                                                                                                                                              |
+
+
 Alternatively, for a **zonal cluster** (all 3 nodes in the same zone):
 
 ```bash
