@@ -66,6 +66,10 @@ gcloud container clusters create my-gke-cluster \
 * `--release-channel`: Optional, defines the update channel (`rapid`, `regular`, `stable`).
 
 ---
+```bash
+kubectl get nodes 
+```
+
 
 ### ✅ **Access your cluster (after creation)**
 
