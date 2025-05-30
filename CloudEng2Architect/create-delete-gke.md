@@ -46,7 +46,7 @@ Note: Your Pod address range (--cluster-ipv4-cidr) can accommodate at most 1008 
 
 /CloudEng2Architect/Explanation_Cluster_Cmd.md
 
-Check out the [Explanation_Cluster](/CloudEng2Architect/Explanation_Cluster_Cmd.md).
+Click me [Explanation of GKE Cluster Commands](/CloudEng2Architect/Explanation_Cluster_Cmd.md).
 ```bash
 gcloud container clusters create my-gke-cluster-latest \
   --region us-central1 \
