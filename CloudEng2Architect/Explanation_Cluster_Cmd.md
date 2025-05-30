@@ -1,7 +1,7 @@
-Explanation of GKE Cluster Creation Command
-This document explains each parameter used in the following `gcloud` command to create a Google Kubernetes Engine (GKE) cluster.
-Command:
-
+#### Explanation of GKE Cluster Creation Command
+--- This document explains each parameter used in the following `gcloud` command to create a Google Kubernetes Engine (GKE) cluster.
+--- Command:
+```bash
 gcloud container clusters create my-gke-cluster-latest \
   --region us-central1 \
   --num-nodes 3 \
@@ -20,7 +20,7 @@ gcloud container clusters create my-gke-cluster-latest \
   --logging=SYSTEM,WORKLOAD \
   --monitoring=SYSTEM \
   --tags=gke-cluster
-
+```
 Explanation of Parameters:
 •	--region us-central1:
   Specifies the region where the GKE cluster will be deployed.
