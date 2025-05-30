@@ -44,12 +44,10 @@ gcloud container clusters create-auto "my-gke-cluster-autopilot" \
 Note: The Kubelet readonly port (10255) is now deprecated. Please update your workloads to use the recommended alternatives. See https://cloud.google.com/kubernetes-engine/docs/how-to/disable-kubelet-readonly-port for ways to check usage and for migration instructions.
 Note: Your Pod address range (--cluster-ipv4-cidr) can accommodate at most 1008 node(s).
 
-/CloudEng2Architect/Explanation_Cluster_Cmd.md
-
 Click me [Explanation of GKE Cluster Commands](/CloudEng2Architect/Explanation_Cluster_Cmd.md).
 ```bash
 gcloud container clusters create my-gke-cluster-latest \
-  --region us-central1 \
+  --region asia-south1 \
   --num-nodes 3 \
   --enable-ip-alias \
   --disk-type=pd-ssd \
