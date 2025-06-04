@@ -61,7 +61,7 @@ with models.DAG(
     load_to_bq = GCSToBigQueryOperator(
         task_id='load_csv_to_bq',
         bucket='airflow_bucket_123',
-        source_objects=['input/employee_data_india.csv'],
+        source_objects=['input/employee_data.csv'],
         destination_project_dataset_table='splendid-sled-460802-q9.him_dataset.staging_employees',
         source_format='CSV',
         autodetect=True,
