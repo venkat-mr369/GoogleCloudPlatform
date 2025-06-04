@@ -1,4 +1,5 @@
-Here is a **step-by-step guide** for reading a CSV from GCS, transforming it using BigQuery, and orchestrating the pipeline using **Cloud Composer (Airflow)**.
+**Task 1:-** Read from GCS, Transform with BQ, Load to BQ using Compose
+Here is a **step-by-steps** for reading a CSV from GCS, transforming it using BigQuery, and orchestrating the pipeline using **Cloud Composer (Airflow)**.
 
 ---
 
@@ -15,7 +16,7 @@ Here is a **step-by-step guide** for reading a CSV from GCS, transforming it usi
 
 ---
 
-## ✅ Step 1: Upload CSV to GCS
+## Step 1: Upload CSV to GCS
 
 ```bash
 gsutil cp employee_data_india.csv gs://airflow_bucket_123/input/
@@ -23,7 +24,7 @@ gsutil cp employee_data_india.csv gs://airflow_bucket_123/input/
 
 ---
 
-## ✅ Step 2: Load CSV to BigQuery (staging)
+## Step 2: Load CSV to BigQuery (staging)
 
 You can either do this manually once or automate via Composer DAG.
 
@@ -33,9 +34,9 @@ bq load --project_id=splendid-sled-460802-q9 --autodetect --source_format=CSV sp
 
 ---
 
-## ✅ Step 3: Create Airflow DAG (Composer)
+## Step 3: Create Airflow DAG (Composer)
 
-### 📝 Create `gcs_bq_transform_dag.py`
+### Create `gcs_bq_transform_dag.py`
 
 ```python
 from airflow import models
@@ -94,7 +95,7 @@ with models.DAG(
 
 ---
 
-## ✅ Step 4: Deploy the DAG to Composer
+## Step 4: Deploy the DAG to Composer
 
 ```bash
 gcloud composer environments storage dags import \
@@ -105,7 +106,7 @@ gcloud composer environments storage dags import \
 
 ---
 
-## ✅ Step 5: Trigger and Monitor DAG
+## Step 5: Trigger and Monitor DAG
 
 1. Go to **Cloud Composer → Environments → him-composer-env9**
 2. Click **"Airflow UI"**
