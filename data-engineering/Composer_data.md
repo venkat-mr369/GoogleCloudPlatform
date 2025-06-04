@@ -33,7 +33,18 @@ You can either do this manually once or automate via Composer DAG.
 bq load --project_id=splendid-sled-460802-q9 --autodetect --source_format=CSV splendid-sled-460802-q9:him_dataset.staging_employees gs://airflow_bucket_123/input/employee_data.csv
 ```
 
----
+**create composer**  
+```bash
+gcloud composer environments create him-composer-env9 \
+  --location=us-east1 \
+  --image-version=composer-2.5.5-airflow-2.6.3 \
+  --env-variables=ENV=prod \
+  --service-account=service-1040211362586@cloudcomposer-accounts.iam.gserviceaccount.com \
+  --enable-ip-alias \
+  --labels=env=prod,team=dataengineering \
+  --airflow-configs=core-load_default_connections=false \
+  --zone=us-east1-b
+```
 
 ## Step 3: Create Airflow DAG (Composer)
 
@@ -116,4 +127,9 @@ gcloud composer environments storage dags import \
 
 ---
 
+To fetch logs for your Composer environment using gcloud:
+
+gcloud composer environments run him-composer-env9 \
+  --location=us-east1 \
+  list_dags
 
