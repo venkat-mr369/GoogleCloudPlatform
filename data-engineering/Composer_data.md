@@ -128,8 +128,15 @@ gcloud composer environments storage dags import \
 ---
 
 To fetch logs for your Composer environment using gcloud:
-
+```bash
 gcloud composer environments run him-composer-env9 \
   --location=us-east1 \
   list_dags
+```
+DAG task logs:
+```bash
+gcloud composer environments run him-composer-env9 \
+  --location=us-east1 \
+  list_tasks -- dag_id=gcs_to_bq_transform_pipeline
+```
 
