@@ -138,4 +138,9 @@ gcloud composer environments run him-composer-env9 \
   --location=us-east1 \
   list_tasks -- dag_id=gcs_to_bq_transform_pipeline
 ```
+Delete Compose
+```bash
+gcloud composer environments delete him-composer-env9 \
+  --location=us-east1 --quiet
+```
 
