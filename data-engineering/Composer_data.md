@@ -4,7 +4,7 @@ Here is a **step-by-step guide** for reading a CSV from GCS, transforming it usi
 
 ## ✅ Scenario Overview
 
-* **CSV File**: `employee_data_india.csv`
+* **CSV File**: `employee_data.csv`
 * **GCS Bucket**: `airflow_bucket_123` (in `us-east1`)
 * **Composer Environment**: `him-composer-env9` (in `us-east1`)
 * **Goal**:
