@@ -40,7 +40,7 @@ gcloud composer environments create him-composer-env9 \
   --image-version=composer-2.13.2-airflow-2.10.5 \
   --env-variables=ENV=dev \
   --service-account=hometown@splendid-sled-460802-q9.iam.gserviceaccount.com \
-  --labels=env=prod,team=dataengineering \
+  --labels=env=dev,team=dataengineering \
   --airflow-configs=core-load_default_connections=false
 
 ```
