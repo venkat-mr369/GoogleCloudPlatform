@@ -3,7 +3,7 @@ Here is a **step-by-steps** for reading a CSV from GCS, transforming it using Bi
 
 ---
 
-## ✅ Scenario Overview
+### Scenario Overview
 
 * **CSV File**: `employee_data.csv`
 * **GCS Bucket**: `airflow_bucket_123` (in `us-east1`)
