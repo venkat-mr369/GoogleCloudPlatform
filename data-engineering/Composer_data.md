@@ -29,7 +29,7 @@ You can either do this manually once or automate via Composer DAG.
 
 ```bash
 bq load --autodetect --source_format=CSV \
-  my_dataset.staging_employees \
+  him_dataset.staging_employees \
   gs://airflow_bucket_123/input/employee_data_india.csv
 ```
 
