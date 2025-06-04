@@ -28,7 +28,7 @@ gsutil cp employee_data_india.csv gs://airflow_bucket_123/input/
 You can either do this manually once or automate via Composer DAG.
 
 ```bash
-bq load   --project_id=splendid-sled-460802-q9   --autodetect   --source_format=CSV   splendid-sled-460802-q9:him_dataset.staging_employees   gs://airflow_bucket_123/input/employee_data.csv
+bq load --project_id=splendid-sled-460802-q9 --autodetect --source_format=CSV splendid-sled-460802-q9:him_dataset.staging_employees gs://airflow_bucket_123/input/employee_data.csv
 ```
 
 ---
