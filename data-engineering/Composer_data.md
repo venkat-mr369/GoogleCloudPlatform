@@ -37,13 +37,12 @@ bq load --project_id=splendid-sled-460802-q9 --autodetect --source_format=CSV sp
 ```bash
 gcloud composer environments create him-composer-env9 \
   --location=us-east1 \
-  --image-version=composer-2.5.5-airflow-2.6.3 \
-  --env-variables=ENV=prod \
-  --service-account=service-1040211362586@cloudcomposer-accounts.iam.gserviceaccount.com \
-  --enable-ip-alias \
+  --image-version=composer-2.13.2-airflow-2.10.5 \
+  --env-variables=ENV=dev \
+  --service-account=hometown@splendid-sled-460802-q9.iam.gserviceaccount.com \
   --labels=env=prod,team=dataengineering \
-  --airflow-configs=core-load_default_connections=false \
-  --zone=us-east1-b
+  --airflow-configs=core-load_default_connections=false
+
 ```
 
 ## Step 3: Create Airflow DAG (Composer)
