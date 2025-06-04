@@ -1,4 +1,5 @@
 **Task 1:-** Read from GCS, Transform with BQ, Load to BQ using Compose
+
 Here is a **step-by-steps** for reading a CSV from GCS, transforming it using BigQuery, and orchestrating the pipeline using **Cloud Composer (Airflow)**.
 
 ---
