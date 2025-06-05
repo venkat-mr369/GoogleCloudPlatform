@@ -149,4 +149,18 @@ Delete Compose
 gcloud composer environments delete him-composer-env9 \
   --location=us-east1 --quiet
 ```
-
+#### To Check Logs
+```bash
+gcloud logging read \
+  'resource.type="cloud_composer_environment" AND resource.labels.environment_name="him-composer-env9"' \
+  --limit=20 \
+  --format="table(timestamp, severity, textPayload)"
+```
+#### To Check Error Logs
+```bash
+gcloud logging read \
+  'resource.type="cloud_composer_environment" AND resource.labels.environment_name="him-composer-env9" AND severity=ERROR' \
+  --project=splendid-sled-460802-q9 \
+  --limit=50 \
+  --format="table(timestamp, severity, textPayload)"
+```
