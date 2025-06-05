@@ -44,6 +44,12 @@ gcloud composer environments create him-composer-env9 \
   --airflow-configs=core-load_default_connections=false
 
 ```
+**list the composer**
+```bash
+gcloud composer environments list \
+  --project=splendid-sled-460802-q9 \
+  --locations=us-east1
+```
 
 ## Step 3: Create Airflow DAG (Composer)
 
