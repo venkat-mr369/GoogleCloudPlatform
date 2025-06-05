@@ -110,7 +110,7 @@ with models.DAG(
 
 ```bash
 gcloud composer environments storage dags import \
-  --environment=him-composer-env9 \
+  --environment=him-composer-env \
   --location=us-east1 \
   --source=gcs_bq_transform_dag.py
 ```
