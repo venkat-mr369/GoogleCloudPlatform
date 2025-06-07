@@ -83,7 +83,7 @@ df_transformed.write.format("bigquery") \
 Upload the script:
 
 ```bash
-gsutil cp bq_transform_job.py gs://him-composer-env9/scripts/
+gsutil cp bq_transform_pyspark_job.py gs://him-composer-env9/scripts/
 ```
 
 ---
