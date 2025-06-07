@@ -48,26 +48,37 @@ Create a file called `bq_transform_job.py`:
 
 ```python
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import upper
 
+# Step 1: Initialize Spark session
 spark = SparkSession.builder \
-    .appName("Easy DB Transformation") \
+    .appName("Transform High Salary Employees") \
     .getOrCreate()
 
-# Read from BigQuery
+# Step 2: Read from BigQuery table: staging_employees
 df = spark.read.format("bigquery") \
-    .option("table", "splendid-sled-460802-q9.source_dataset.source_table") \
+    .option("table", "splendid-sled-460802-q9.him_dataset.staging_employees") \
     .load()
 
-# Transformation (Example: Convert name to uppercase)
-df_transformed = df.select("id", "name").where("id IS NOT NULL") \
-    .withColumnRenamed("name", "original_name")
+# Step 3: Apply transformations
+# - Filter employees with salary > 75000
+# - Convert 'city' and 'state' to uppercase
+df_transformed = df.filter(df.salary > 75000) \
+    .withColumn("city", upper(df["city"])) \
+    .withColumn("state", upper(df["state"]))
 
-# Write back to BigQuery
+# Step 4: Write the transformed data to BigQuery: transformed_employees
 df_transformed.write.format("bigquery") \
-    .option("table", "splendid-sled-460802-q9.target_dataset.transformed_table") \
+    .option("table", "splendid-sled-460802-q9.him_dataset.transformed_employees") \
     .mode("overwrite") \
     .save()
+
 ```
+| Transformation Step              | Purpose                            |
+| -------------------------------- | ---------------------------------- |
+| `salary > 75000`                 | Filters only high-salaried records |
+| `upper(city)` and `upper(state)` | Standardizes text to uppercase     |
+
 
 Upload the script:
 
