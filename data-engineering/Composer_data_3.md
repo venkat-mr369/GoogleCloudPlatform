@@ -135,7 +135,7 @@ with DAG("dataproc_bq_dag",
             "reference": {"project_id": PROJECT_ID},
             "placement": {"cluster_name": CLUSTER_NAME},
             "pyspark_job": {
-                "main_python_file_uri": f"gs://{BUCKET_NAME}/scripts/bq_transform_job.py"
+                "main_python_file_uri": f"gs://{BUCKET_NAME}/scripts/bq_transform_pyspark_job.py"
             },
         },
         region=REGION,
