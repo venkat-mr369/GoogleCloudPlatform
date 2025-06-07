@@ -44,7 +44,7 @@ export BUCKET=$(gcloud composer environments describe $COMPOSER_ENV_NAME \
 
 ## Step 2: Upload PySpark Script to GCS
 
-Create a file called `bq_transform_job.py`:
+Create a file called `bq_transform_pyspark_job.py`:
 
 ```python
 from pyspark.sql import SparkSession
