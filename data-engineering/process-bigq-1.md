@@ -132,4 +132,4 @@ python excel_to_bq.py \
 
 ---
 
-Would you like me to generate this pipeline as a **Dockerized Dataflow Flex Template** next?
+
