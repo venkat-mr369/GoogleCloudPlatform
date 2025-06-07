@@ -90,9 +90,3 @@ gcloud builds submit --tag gcr.io/<your-project-id>/beam-excel-pg:latest
 
 ---
 
-Let me know if you want:
-- A working example of the Excel → Postgres pipeline (`excel_to_postgres.py`)
-- Help writing a schema mapper for Excel → SQL
-- Auto-detection of column names and types from the Excel file
-
-I'm happy to generate a full working project for you.
