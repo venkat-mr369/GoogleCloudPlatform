@@ -31,7 +31,15 @@ gcloud services enable \
   composer.googleapis.com \
   storage.googleapis.com
 ```
-
+## Seting Environment (optional)
+```bash
+export PROJECT_ID="splendid-sled-460802-q9"
+export COMPOSER_ENV_NAME="him-composer-env9"
+export LOCATION="us-east1"
+export DATASET="him_dataset"
+export BUCKET=$(gcloud composer environments describe $COMPOSER_ENV_NAME \
+  --location $LOCATION --format="value(config.dagGcsPrefix)" | sed 's/\/dags\/$//')
+```
 ---
 
 ## Step 2: Upload PySpark Script to GCS
