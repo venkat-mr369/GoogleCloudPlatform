@@ -1,4 +1,4 @@
-Task 3:- ⁠create a data proc cluster, read data from BQ cluster, do some transformations using, write to BQ and delete the cluster
+**Task 3:-** ⁠create a data proc cluster, read data from BQ cluster, do some transformations using, write to BQ and delete the cluster
 
 **Deploying Dataproc Workflow via Cloud Composer**
 
