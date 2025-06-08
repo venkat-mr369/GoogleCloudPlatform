@@ -1,5 +1,3 @@
-Sure! Here's a **simple explanation** of each of the technologies you listed, using everyday language:
-
 ---
 
 ### 🐝 **Hive WebHCat**
