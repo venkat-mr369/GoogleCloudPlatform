@@ -63,7 +63,7 @@ gcloud compute zones list --filter="region:(us-central1)"
 
 ---
 
-## 🔁 **6. Architecture Example**
+## 🔁 **6. Architecture - Lab Work**
 
 Let’s say you deploy an app in `us-central1` (Iowa):
 
@@ -73,7 +73,7 @@ Let’s say you deploy an app in `us-central1` (Iowa):
 
 ---
 
-## 🧩 **7. Best Practices**
+## 🧩 **7. Best Practices for Project Work**
 
 ✅ Use **regional resources** for high availability (e.g., Cloud SQL Regional)
 
