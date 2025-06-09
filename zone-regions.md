@@ -118,4 +118,4 @@ VM, GKE   Cloud SQL     VM, GKE   Cloud SQL    VM, GKE   Cloud SQL
 
 ---
 
-Would you like a **Word document** or **Visio-style architecture diagram** of this explanation?
+
