@@ -1,47 +1,49 @@
-**create a GCP Dataform setup using Terraform** for:
-
-* **Project**: `splendid-sled-460802-q9`
-* **Dataset**: `him-dataset`
-* **Region**: `us-east1`
-* **Service Account**: `hometown@splendid-sled-460802-q9.iam.gserviceaccount.com`
+**complete and detailed guide to deploy GCP Dataform using Terraform** for your Snowflake → BigQuery migration project.
 
 ---
 
-## ✅ Goal
+## ✅ PROJECT DETAILS (AS PROVIDED)
 
-Provision the following with Terraform:
-
-1. **BigQuery Dataset** (`him-dataset`)
-2. **Dataform Repository**
-3. **Compilation Result** (for testing SQL models)
-4. **Workflow Configuration** (optional scheduled pipeline)
-5. **IAM Permissions** for the service account
+| Parameter               | Value                                                                                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **Terraform Repo Path** | `data-engineering/dataform` or [GitHub Link](https://github.com/venkat-mr369/GoogleCloudPlatform/blob/main/data-engineering/dataform) |
+| **GCP Project**         | `splendid-sled-460802-q9`                                                                                                             |
+| **Region**              | `us-east1`                                                                                                                            |
+| **BigQuery Dataset**    | `him-dataset`                                                                                                                         |
+| **Service Account**     | `hometown@splendid-sled-460802-q9.iam.gserviceaccount.com`                                                                            |
 
 ---
 
-## 📁 Terraform Structure
+## 📦 OBJECTIVE
+
+Provision using Terraform:
+
+1. BigQuery Dataset
+2. Dataform Repository (linked to your GitHub)
+3. Optional Compilation Result (to verify setup)
+4. Optional Workflow Config (to schedule transformations)
+5. IAM roles for the service account
+
+---
+
+## 📁 Terraform Structure in Your Repo
+
+Update or organize your directory as:
 
 ```
-dataform-terraform/
-├── main.tf
-├── variables.tf
-├── terraform.tfvars
-├── outputs.tf
+data-engineering/
+└── dataform/
+    ├── main.tf
+    ├── variables.tf
+    ├── terraform.tfvars
+    └── outputs.tf
 ```
 
 ---
 
-## 🔹 Step 1: Enable Required APIs
+## 🔧 Step-by-Step Terraform Setup
 
-Before running Terraform, run:
-
-```bash
-gcloud services enable dataform.googleapis.com bigquery.googleapis.com
-```
-
----
-
-## 🔹 Step 2: `variables.tf`
+### 🔹 `variables.tf`
 
 ```hcl
 variable "project_id" {
@@ -57,11 +59,15 @@ variable "dataset_id" {
 }
 
 variable "repository_name" {
-  default = "him-dataform-repo"
+  default = "dataform-him-repo"
 }
 
 variable "git_uri" {
-  default = "https://github.com/your-org/dataform-repo.git"
+  default = "https://github.com/venkat-mr369/GoogleCloudPlatform.git"
+}
+
+variable "repo_directory" {
+  default = "data-engineering/dataform"
 }
 
 variable "branch" {
@@ -75,7 +81,7 @@ variable "service_account_email" {
 
 ---
 
-## 🔹 Step 3: `main.tf`
+### 🔹 `main.tf`
 
 ```hcl
 provider "google" {
@@ -85,10 +91,10 @@ provider "google" {
 
 # BigQuery Dataset
 resource "google_bigquery_dataset" "him_dataset" {
-  dataset_id = var.dataset_id
-  project    = var.project_id
-  location   = var.region
-  description = "Dataset for Snowflake migration"
+  dataset_id  = var.dataset_id
+  location    = var.region
+  project     = var.project_id
+  description = "Dataset for Dataform-based ELT pipelines"
 }
 
 # Dataform Repository
@@ -96,16 +102,17 @@ resource "google_dataform_repository" "dataform_repo" {
   name         = var.repository_name
   project      = var.project_id
   region       = var.region
-  display_name = "HIM Dataform Repository"
-
+  display_name = "HIM Dataform Repo"
+  
   git_remote_settings {
     url            = var.git_uri
     default_branch = var.branch
+    path           = var.repo_directory
   }
 }
 
-# Optional Compilation Result (test build)
-resource "google_dataform_compilation_result" "compile" {
+# (Optional) Compile to test Dataform config
+resource "google_dataform_compilation_result" "compile_result" {
   project    = var.project_id
   region     = var.region
   repository = google_dataform_repository.dataform_repo.name
@@ -116,16 +123,16 @@ resource "google_dataform_compilation_result" "compile" {
   }
 }
 
-# Optional Workflow Configuration (daily schedule)
-resource "google_dataform_workflow_config" "daily_workflow" {
-  project     = var.project_id
-  region      = var.region
-  repository  = google_dataform_repository.dataform_repo.name
-  name        = "daily_workflow"
-  display_name = "Daily Snowflake ELT Run"
+# (Optional) Workflow - Daily run of tagged models
+resource "google_dataform_workflow_config" "workflow_config" {
+  name         = "daily_him_workflow"
+  display_name = "Daily HIM Transformation"
+  project      = var.project_id
+  region       = var.region
+  repository   = google_dataform_repository.dataform_repo.name
 
   schedule {
-    cron      = "0 3 * * *"  # 3 AM UTC daily
+    cron      = "0 4 * * *"  # 4 AM UTC
     time_zone = "UTC"
   }
 
@@ -138,51 +145,63 @@ resource "google_dataform_workflow_config" "daily_workflow" {
   }
 }
 
-# IAM Binding for the Dataform Service Account to access BigQuery
-resource "google_bigquery_dataset_iam_member" "dataform_access" {
+# IAM Binding - Allow service account access to BigQuery
+resource "google_bigquery_dataset_iam_member" "bq_access" {
   dataset_id = google_bigquery_dataset.him_dataset.dataset_id
   role       = "roles/bigquery.dataEditor"
+  member     = "serviceAccount:${var.service_account_email}"
+}
+
+# IAM for Dataform Repository
+resource "google_dataform_repository_iam_member" "dataform_repo_editor" {
+  project    = var.project_id
+  region     = var.region
+  repository = google_dataform_repository.dataform_repo.name
+  role       = "roles/dataform.editor"
   member     = "serviceAccount:${var.service_account_email}"
 }
 ```
 
 ---
 
-## 🔹 Step 4: `terraform.tfvars`
+### 🔹 `terraform.tfvars`
 
 ```hcl
 project_id            = "splendid-sled-460802-q9"
 region                = "us-east1"
 dataset_id            = "him-dataset"
-repository_name       = "him-dataform-repo"
-git_uri               = "https://github.com/your-org/dataform-repo.git"
+repository_name       = "dataform-him-repo"
+git_uri               = "https://github.com/venkat-mr369/GoogleCloudPlatform.git"
+repo_directory        = "data-engineering/dataform"
 branch                = "main"
 service_account_email = "hometown@splendid-sled-460802-q9.iam.gserviceaccount.com"
 ```
 
 ---
 
-## 🔹 Step 5: `outputs.tf`
+### 🔹 `outputs.tf`
 
 ```hcl
-output "dataset_id" {
-  value = google_bigquery_dataset.him_dataset.dataset_id
-}
-
-output "dataform_repository" {
+output "repository_name" {
   value = google_dataform_repository.dataform_repo.name
 }
 
 output "workflow_name" {
-  value = google_dataform_workflow_config.daily_workflow.name
+  value = google_dataform_workflow_config.workflow_config.name
+}
+
+output "dataset_id" {
+  value = google_bigquery_dataset.him_dataset.dataset_id
 }
 ```
 
 ---
 
-## 🔹 Step 6: Run Terraform
+## 🔄 Terraform Execution Steps
 
 ```bash
+cd data-engineering/dataform
+
 terraform init
 terraform plan
 terraform apply
@@ -190,21 +209,39 @@ terraform apply
 
 ---
 
-## 🔐 IAM Notes
+## 🔐 Service Account IAM Pre-check
 
-Ensure `hometown@splendid-sled-460802-q9.iam.gserviceaccount.com` has:
+Make sure the service account has these roles in the project:
 
-* `roles/dataform.admin`
-* `roles/bigquery.dataEditor`
-* Access to your Git repo (via GitHub/GitLab token or deploy key)
+```bash
+gcloud projects add-iam-policy-binding splendid-sled-460802-q9 \
+  --member="serviceAccount:hometown@splendid-sled-460802-q9.iam.gserviceaccount.com" \
+  --role="roles/dataform.editor"
+
+gcloud projects add-iam-policy-binding splendid-sled-460802-q9 \
+  --member="serviceAccount:hometown@splendid-sled-460802-q9.iam.gserviceaccount.com" \
+  --role="roles/bigquery.dataEditor"
+```
 
 ---
 
-## 📈 Optional Diagram and Word Document?
+## 📌 GitHub Setup Reminder
 
-Would you like me to generate a **Word document** version of this with:
+For **GitHub integration**, ensure:
 
-* A **Visio-style diagram** (Dataform + BQ + Git)
-* Proper headers, structure, and command line highlights?
+* The Dataform workspace in GCP has OAuth access to your GitHub repo
+* The repo contains valid `definitions/`, `dataform.json`, `.sqlx`, and `.yaml` files
 
-Let me know, and I’ll prepare the file for download.
+---
+
+## 📄 Want a Word Document + Diagram?
+
+Would you like me to export this setup as:
+
+* A polished Word document
+* A Visio-style diagram showing:
+
+  * GitHub repo → Dataform → BigQuery pipeline
+  * Terraform IaC integration flow
+
+If yes, I’ll generate and share the `.docx` file with visuals. Let me know.
