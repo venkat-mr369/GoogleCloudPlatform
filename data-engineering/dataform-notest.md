@@ -1,4 +1,4 @@
-Thanks for the project details. Based on your inputs, here’s a **complete and detailed guide to create a GCP Dataform setup using Terraform** for:
+**create a GCP Dataform setup using Terraform** for:
 
 * **Project**: `splendid-sled-460802-q9`
 * **Dataset**: `him-dataset`
