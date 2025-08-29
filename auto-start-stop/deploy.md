@@ -4,3 +4,8 @@ gcloud functions deploy start-vm-function   --gen2   --runtime=python310   --reg
 ```bash
 gcloud scheduler jobs create pubsub start-vm-job   --location=europe-north1-a   --schedule="30 1 * * *"   --topic=start-vm-topic   --message-body="Start vm01 at 7 AM IST"   --time-zone="UTC"   --project=rand-369
 ```
+---to test start and stop
+```
+gcloud pubsub topics create start-vm-topic --project=rand-369
+gcloud pubsub topics create stop-vm-topic --project=rand-369
+```
