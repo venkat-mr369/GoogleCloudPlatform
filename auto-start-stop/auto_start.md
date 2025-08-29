@@ -1,4 +1,5 @@
 ---main.py
+```py
 from googleapiclient import discovery
 from google.auth import default
 
@@ -13,7 +14,9 @@ def start_vm(event, context):
     response = request.execute()
 
     print(f"✅ Started VM {instance} in zone {zone}: {response}")
-
+```
 ---cat requirements.txt
+```py
 google-api-python-client
 google-auth
+```
